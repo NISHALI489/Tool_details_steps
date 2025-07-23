@@ -1,0 +1,68 @@
+/******************************* COM_STACK_ALL_INFORMATION *********************************************************/
+Layer Inforamtion
+
+TX_FLOW
+RX_FLOW
+
+												Application
+												
+		RTE_Write();										                              RTE_Read();
+												
+												 RTE                        
+												
+		Com_SendSignal(Signal, Data*);          (--SIGNALS--)                 Com_ReceiveSignal(Signal, Data*);
+												
+												Communication                 
+												
+		PduR_Com_Transmit(HID, PDUinfo*);		(--IPDU--)                    Com_RxIndication(HID, PDUinfo*);
+												
+												PduR
+												
+		CanIf_Transmit(HID, PDUinfo*);			(--IPDU--)                    PduR_CAN_If_Rxindication(HID, PDUinfo*);  
+												
+												CAN_If
+												
+		Can_Write();						    (--LPDU--)                    CAN_If_Rxindication(HRH, PDUinfo*); 
+												
+												CAN_Driver
+												
+												 (--FRAME--)
+												
+												Micro_Controller
+
+
+/******************************* COM STACK CONFIGURATION PARAMETER *************************************************/
+
+For com stack configuration have to go for first CAN driver configuration.
+CAN Driver is one time configuration.
+AUTOSAR
+																							
+CAN_Driver		-->     CAN_Config_set	--> Can_Controller_Coonfiguration  --> CAN_Controller_Wake_Up_Processing --> Intrrupt/Polling
+																		   --> CAN_Controller_Bus_Off_Processing --> Intrrupt/Polling
+																		   --> CAN_Tx_Processing                 --> Intrrupt/Polling
+																		   --> CAN_Rx_Processing                 --> Intrrupt/Polling
+																		   --> CAN_Controller_Base_Address       
+																		   --> CAN_Controller_RAM_Base_Address
+																		   --> Physical_Addressing
+											Three_Reference				   --> Wake_Up_Source Reference from EcuM
+																		   --> Clock Reference form MCU
+																		   --> Baud_Rate Reference from Sub_Container
+																		   
+											CAN_HW_Object_Creation         --> Can_Controller Handle Type --> Basic -->Filter code Filter Mask
+																										  --> Full  --> High Priorit MSG
+																										  
+																		   --> Can_Controller ID Type     --> Standard --> 11 bit
+																					                      --> Extended --> 29 bit
+																										  --> Mixed    --> 11/29 bit
+																		   --> Can_Controller Object Type --> RX
+																										  --> TX
+																		   --> References
+																		
+												
+                                        
+
+CAN_If			-->
+
+PduR        	-->
+
+Communication	-->	
