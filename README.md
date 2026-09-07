@@ -44,5 +44,74 @@ add test case in that input value, expected values.
    loop itration
    
 6. code coverage = (No of line covered/Total no of code line) * 100%
-		
+
+
+
+/*******************************************Davinci Configuration: (Dbc Import):Davinci Configuration: (Dbc Import):***************************************************/
+
+Input file format: 
+.dbc (Holds info like Network, ECU name, CAN Meaages, Signals)
+Cdd  (Dignostic related infro specially SID, NRCs)
+Fault matrix sheet  (DEM related faults, fault condition)
+
+Import step:
+•	For Davinci configurator Input file is .dpa (Davinci Project assist)
+dpa -> Holds Module configuration ECU arxml path. 
+Arxml : Autosar extension markup langage.
+
+Step to opening Davinci Configurator Pro:
+•	Go to project Stack check for .dpa exe file  right click on .dpa  
+more option  a. BSW        For BSW
+	b. ASW      For Appl
+
+	Click on, I accept.
+•	Once open go to Basic editor(holds all project related all modules).
+•	Project  I/P Files  cdd, dbc (import)
+•	View  option down consoles open option.
+Another Way to open .dpa file.
+•	Go to start search bar  type configurator  once open  file  import  +  select .dpa  open
+
+•	After all configuration done  give on demand generator validation –> (for validation and generation module)(F8)  For validation.
+
+•	After clicking validation and generation  in window left side  Deselect all  select which modules you changed based on Client Requirements  validate it  
+
+•	Generate (F9)  generate arxml files  follow same for generation file (Deselect unchanged module) and generate
+
+•	Down validation window  error show 
+
+•	Parameter Description  left down properties window
+
+•	If all configuration properties done  generate files in Gendata folder (with Updated date)
+
+•	Import .dbc, cdd, files  Click on Project Input files  path for +mark dbc/cdd  arxml path  start flow/Update  click  after that it will update all configuration as per cdd/dbc files.
+
+Davinci Congi and Dev:
+1.	Set up Project
+2.	Define Project setting
+3.	Validation
+4.	Start BSW configuration
+5.	Design SWc
+6.	Mappings
+7.	Code generation
+8.	Add Runnable code
+9.	Compile, Link, And Test
+
+Folder Structure:
+Appl: GenData: After Configuration all module genearated output files.
+Source: Source code
+Config: 
+a.	Appl_component: Put additional SWcType the davinci confi pro – read all .arxml files of this folder
+b.	Autosar: Def files of data type (Platform type_AR4 arxml) is cenreally stored here.
+Developers: All relevant project data for Dev Dev is located here
+ECUc: contains created ECUc files, before you add input file, files are only place holder without content.
+Internal Behavior: contain BSWmd files for all activated modules in the Dev D.
+Mc Data: Used to store measurement and calibrate data.
+Service component: Dev Config stored all generated service component prototype. 
+
+
+/*************************************************************************************************************/
+dBC  Data base file  System Architecture  Davanci Config  Configure parameter based on dBC reqs  once done validate and generate  based on configured container will generate separate arxml, with module will generate PB config, L config, config .c .h 6 files will generate  those gene rated arxml paths are available into ECUextract.arxml  that file  import into Davanci Developer Create SWC  in ECU exctract from configurator  in Developer can see the interfaces, Ports, Data Types  in Developer tool connects SWC, Port, Port Interfaces  Generate ARXL again  SWC.arxml will generate  SWC.arxml it holds SWC Runnable Port Interface Data Access that file again imprt to configurator  Now configurator has 
+System.arxml+EcuExtract.arxml+EngineDisplaySWC.arxml+Com Configuration+OS Configuration 
+RTE generator creates  Rte.c, Rte.h, Rte_EngineDisplaySWC.h, Rte_Type.
+
 		
