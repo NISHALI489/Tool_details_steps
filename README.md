@@ -114,4 +114,48 @@ dBC  Data base file  System Architecture  Davanci Config  Configure 
 System.arxml+EcuExtract.arxml+EngineDisplaySWC.arxml+Com Configuration+OS Configuration 
 RTE generator creates  Rte.c, Rte.h, Rte_EngineDisplaySWC.h, Rte_Type.
 
+/*****************************************RTE ************************************************************/
+Port: P/R
+Port interface: Sender/Receiver 
+   				Client  Sever
+Data Element : Application, Implementation
+Create the runnable in the internal behaviour:
+					1. Data Acccess     --> Implicate, explicite  (Buffer Local, global)
+					2. Event Access    --> Timing based 
+					3. Operation invoke event --> For Diag data
+
+Composition: Group of Software component
+Assembly: The connection between similar port i.e P->P, R ->R
+Deligation: The connection between diffenrt port
+
+/****************************** DCM ************************************************************************/
+DSL: 4 container
+1. Buffer --> Name, size
+2. Respose pending
+3. Protocol row: SID ID table reference
+			     P2, p2* Server Adj timer
+   				 Securtiy/session
+                 buffer reference
+4. Main         Tx/Rx Pdu Reference
+                EcuC reference
+DSD :           Sid, Sid name,
+				Sub function availablity: Sub function name, id, S/s level access
+                S/s access
+DSP:           DID/ RID
+
+///////////////////////////DID//////////////////////////////////////////////////////////////////////
+4 container:
+DID Data info
+DID Data configuration
+DID
+DID info
+
+1 DID Data info: Fixed or variable  then Length_check (APi)
+2 DID Data configuration: DID Data name,
+                          (R/W/condition check)   --> if cond check then, Async func or C/S Interface
+						  DID Data info reference
+3 DID :  DID Name, ID, Signal reference
+4 DID info: R/W, S/S
+					
+
 		
