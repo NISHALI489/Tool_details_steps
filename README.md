@@ -109,7 +109,7 @@ Mc Data: Used to store measurement and calibrate data.
 Service component: Dev Config stored all generated service component prototype. 
 
 
-/*************************************************************************************************************/
+/************************************************  DBC  *************************************************************/
 dBC  Data base file  System Architecture  Davanci Config  Configure parameter based on dBC reqs  once done validate and generate  based on configured container will generate separate arxml, with module will generate PB config, L config, config .c .h 6 files will generate  those gene rated arxml paths are available into ECUextract.arxml  that file  import into Davanci Developer Create SWC  in ECU exctract from configurator  in Developer can see the interfaces, Ports, Data Types  in Developer tool connects SWC, Port, Port Interfaces  Generate ARXL again  SWC.arxml will generate  SWC.arxml it holds SWC Runnable Port Interface Data Access that file again imprt to configurator  Now configurator has 
 System.arxml+EcuExtract.arxml+EngineDisplaySWC.arxml+Com Configuration+OS Configuration 
 RTE generator creates  Rte.c, Rte.h, Rte_EngineDisplaySWC.h, Rte_Type.
